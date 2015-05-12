@@ -1,5 +1,8 @@
+var path = require('path');
+
 var dest = './build';
 var src = './src';
+var relativeSrcPath = path.relative('.', src);
 
 module.exports = {
   dest: dest,
@@ -30,5 +33,10 @@ module.exports = {
       src + '/www/index.html'
     ],
     dest: dest
+  },
+
+  watch: {
+    js: relativeSrcPath + '/js/**',
+    www: relativeSrcPath + '/www/index.html'
   }
 }
